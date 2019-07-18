@@ -5,29 +5,26 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OUTPUT_PATH = path.resolve(__dirname, './dist');
 
 module.exports = {
-  context: path.resolve(__dirname, './src'),
+  context: path.resolve(__dirname, 'src'),
   entry: './index.js',
   output: {
     filename: 'bundle.js',
     path: OUTPUT_PATH,
+    library: 'ui-react-material',
     libraryTarget: 'umd',
   },
   devServer: {
     contentBase: OUTPUT_PATH,
     stats: 'errors-only',
     open: true,
-    port: 8044,
+    port: 8059,
     compress: true,
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
-    })
+    }),
+    // new CleanWebpackPlugin(['dist']),
   ],
   module: {
     rules: [
@@ -42,12 +39,6 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        // only turn on standard global CSS loader for the material directories
-        // These paths are the same as above and specific to your system, so change accordingly
-        include: [
-          path.resolve('./node_modules/material-components-web'),
-          path.resolve('./node_modules/@material'),
-        ],
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
@@ -61,8 +52,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
-    },
+  },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+    'styled-components': 'styled-components',
+    'lodash.isempty': 'lodash.isempty',
   },
 };
+
