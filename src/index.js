@@ -1,2 +1,3 @@
-export { Modal } from './dialog/modal';
-export { Button } from './button/button';
+import { lazy } from 'react';
+
+export const Button = lazy(() => import(/* webpackChunkName: 'button' */'./button/button'));

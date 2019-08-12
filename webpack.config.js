@@ -1,17 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const config = require('config');
 
 const OUTPUT_PATH = path.resolve(__dirname, './dist');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  entry: './index.js',
+  entry: {
+    main: './index.js',
+    'another-main': './another-index.js',
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: OUTPUT_PATH,
     library: 'ui-react-material',
     libraryTarget: 'umd',
+    publicPath: './',
   },
   devServer: {
     contentBase: OUTPUT_PATH,

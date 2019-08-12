@@ -1,8 +1,8 @@
 {
   "name": "testpro1234",
-  "version": "1.0.6",
+  "version": "1.0.21",
   "description": "test",
-  "main": "dist/bundle.js",
+  "main": "dist/main.bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --mode production"
@@ -19,15 +19,16 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "config": "^3.2.2",
     "css-loader": "^3.0.0",
     "file-loader": "^4.0.0",
-    "styled-components": "^3.1.5",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "styled-components": "^3.1.5",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6"
   },

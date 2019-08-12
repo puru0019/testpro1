@@ -5,7 +5,7 @@ import '@material/button/dist/mdc.button.css';
 /**
  * Renders various types of buttons such as primary, secondary, tertiary and danger
  */
-export const Button = ({
+const Button = ({
   children, buttonType, disabled, dataTa, className, onClick, type,
 }) => (
 
@@ -46,3 +46,5 @@ Button.propTypes = {
   /** The type attribute specifies the type of the button for example button, submit and reset */
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
+
+export default Button;

@@ -10,7 +10,7 @@ import '@material/dialog/dist/mdc.dialog.css';
 /**
  * Renders a modal dialog with custom content.
 */
-export const Modal = ({
+const Modal = ({
   children, title, onClose, open, preventDismissalOnOutsideClick, className,
 }) => (
   <Dialog
@@ -42,3 +42,5 @@ Modal.propTypes = {
   /** classname to add custom styles */
   className: PropTypes.string,
 };
+
+export default Modal;
