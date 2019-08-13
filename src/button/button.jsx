@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Button as RMWCButton } from '@rmwc/button';
 import '@material/button/dist/mdc.button.css';
 /**
@@ -7,8 +8,7 @@ import '@material/button/dist/mdc.button.css';
  */
 const Button = ({
   children, buttonType, disabled, dataTa, className, onClick, type,
-}) => (
-
+}) => styled((
   <RMWCButton
     disabled={disabled}
     raised={buttonType === 'primary' || buttonType === 'danger'}
@@ -21,8 +21,11 @@ const Button = ({
   >
     {children}
   </RMWCButton>
-
-)
+))`
+  text-transform: capitalize;
+  background-color: red;
+  color: white;
+`;
 
 Button.defaultProps = {
   disabled: false,

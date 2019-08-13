@@ -9,7 +9,6 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     main: './index.js',
-    'another-main': './another-index.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -17,6 +16,33 @@ module.exports = {
     library: 'ui-react-material',
     libraryTarget: 'umd',
     publicPath: './',
+  },
+   optimization: {
+    splitChunks: {
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          name: 'vendor',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        common: {
+          name: 'common',
+          test: /[\\/]node_modules[\\/]/,
+          minChunks: 3,
+          chunks: 'all',
+          priority: 10,
+          reuseExistingChunk: true,
+          enforce: true,
+        },
+      },
+    },
   },
   devServer: {
     contentBase: OUTPUT_PATH,
